@@ -27,7 +27,7 @@ variable "function_name" {
 variable "runtime" {
   type = string
   description = "Node runtime of the lambda function"
-  default = var.language == "Node" ? "nodejs20.x" : "java21"
+  default = "nodejs20.x"
 }
 
 variable "timeout" {
@@ -39,5 +39,5 @@ variable "timeout" {
 variable "handler" {
   type = string
   description = "Handler of the lambda function"
-  default = var.language == "Node" ? "${var.function_name}.handler" : "${var.function_name}::handler"
+  default = "${var.function_name}.handler"
 }
