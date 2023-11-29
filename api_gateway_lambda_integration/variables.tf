@@ -39,5 +39,5 @@ variable "timeout" {
 variable "handler" {
   type = string
   description = "Handler of the lambda function"
-  default = "${var.function_name}.handler"
+  default = "index.handler"
 }
