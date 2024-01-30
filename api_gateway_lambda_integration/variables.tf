@@ -13,12 +13,6 @@ variable "execution_arn" {
   description = "The execution_arn of the api gateway"
 }
 
-variable "language" {
-  type = string
-  description = "Java or Node"
-  default = "Node"
-}
-
 variable "function_name" {
   type = string
   description = "Name of the lambda function"
