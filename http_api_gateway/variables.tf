@@ -22,3 +22,8 @@ variable "max_age" {
   type = number
   default = 60
 }
+
+variable "stage_name" {
+  type = string
+  default = "$default"
+}
