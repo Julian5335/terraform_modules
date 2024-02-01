@@ -14,15 +14,15 @@ resource "aws_iam_role" "this" {
   })
 }
 
-resource "aws_lambda_permission" "node" {
+resource "aws_lambda_permission" "this" {
   statement_id  = "AllowAPIGatewayInvoke"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.node.function_name
+  function_name = aws_lambda_function.this.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${var.execution_arn}/*/*"
 }
 
-resource "aws_lambda_function" "node" {
+resource "aws_lambda_function" "this" {
   function_name    = "${var.function_name}__node_lambda_function"
   filename         = data.archive_file.this.output_path
   source_code_hash = data.archive_file.this.output_base64sha256
@@ -31,4 +31,5 @@ resource "aws_lambda_function" "node" {
   runtime          = var.runtime
   handler          = var.handler
   timeout          = var.timeout
+  memory_size      = var.memory
 }

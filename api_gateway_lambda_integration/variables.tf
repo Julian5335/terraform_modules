@@ -35,3 +35,14 @@ variable "handler" {
   description = "Handler of the lambda function"
   default = "index.handler"
 }
+
+variable "file_name" {
+  type = string
+  description = "Name of the source file"
+}
+
+variable "memory" {
+  type = number
+  description = "Memory size (128, 512, 1024, 1536)"
+  default = 128
+}
